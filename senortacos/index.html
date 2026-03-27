@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Señor Tacos — Authentic Mexican | Lafayette, IN</title>
+<meta name="description" content="Señor Tacos — family-owned Mexican restaurant in Lafayette, Indiana since 2001. Fresh tacos, burritos, and more.">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--flame:#e63b12;--sand:#f5efe0;--charcoal:#1a1714;--warm:#2d2620;--gold:#d4a24e;--cream:#faf6ee}
+  body{font-family:'General Sans',sans-serif;color:var(--charcoal);background:var(--cream)}
+  
+  /* NAV — warm, grounded */
+  .nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,246,238,0.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05)}
+  .nav-brand{font-family:'Cabinet Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--charcoal);text-decoration:none;letter-spacing:-0.5px}
+  .nav-brand em{color:var(--flame);font-style:normal}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--warm);text-decoration:none;font-size:13px;font-weight:600;opacity:0.6;transition:opacity .3s}
+  .nav-links a:hover{opacity:1}
+  .nav-order{background:var(--flame)!important;color:#fff!important;padding:8px 20px;border-radius:6px;opacity:1!important}
+  .nav-order:hover{background:#cc3310!important}
+  @media(max-width:768px){.nav{padding:14px 20px}.nav-links{gap:14px}.nav-links a{font-size:11px}}
+  
+  /* HERO — full bleed image with text overlay */
+  .hero{height:100vh;position:relative;overflow:hidden}
+  .hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1600&h=1000&fit=crop') center/cover}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,23,20,0.92) 0%,rgba(26,23,20,0.6) 50%,transparent 100%)}
+  .hero-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 40px;max-width:600px}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+  .hero-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
+  .hero h1{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(40px,6vw,68px);font-weight:800;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:16px}
+  .hero-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:32px;max-width:400px}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-flame{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--flame);color:#fff;font-weight:600;font-size:14px;text-decoration:none;border-radius:6px;transition:all .3s}
+  .btn-flame:hover{background:#cc3310;transform:translateY(-2px)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);font-weight:600;font-size:14px;text-decoration:none;border-radius:6px;transition:all .3s}
+  .btn-ghost:hover{border-color:#fff;color:#fff}
+  
+  @media(max-width:768px){.hero-content{padding:0 20px}}
+  
+  /* TICKER */
+  .ticker{background:var(--charcoal);padding:14px 0;overflow:hidden;white-space:nowrap}
+  .ticker-track{display:inline-block;animation:tick 25s linear infinite;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+  .ticker-track em{color:var(--flame);font-style:normal}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  
+  /* MENU */
+  .section{padding:100px 40px;max-width:1100px;margin:0 auto}
+  @media(max-width:768px){.section{padding:60px 20px}}
+  .section-eyebrow{font-size:12px;font-weight:600;color:var(--flame);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+  .section-heading{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px}
+  .section-desc{font-size:15px;color:rgba(45,38,32,0.5);max-width:420px;line-height:1.7;margin-bottom:48px}
+  
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .menu-item{display:flex;gap:16px;padding:20px;background:#fff;border-radius:10px;border:1px solid rgba(0,0,0,0.04);transition:all .3s}
+  .menu-item:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-2px)}
+  .menu-img{width:80px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0}
+  .menu-name{font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px}
+  .menu-desc{font-size:12px;color:rgba(45,38,32,0.5);line-height:1.5;margin-bottom:6px}
+  .menu-price{font-family:'Cabinet Grotesk',sans-serif;font-weight:800;color:var(--flame);font-size:16px}
+  
+  /* STORY SECTION */
+  .story{padding:100px 40px;background:var(--charcoal);color:#fff}
+  .story-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  @media(max-width:768px){.story-inner{grid-template-columns:1fr;gap:32px}.story{padding:60px 20px}}
+  .story-gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .story-gallery img{width:100%;height:180px;object-fit:cover;border-radius:6px}
+  .story-gallery img:first-child{grid-column:span 2;height:220px}
+  .story-text .section-eyebrow{color:var(--gold)}
+  .story-text .section-heading{color:#fff}
+  .story-text p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:16px}
+  .story-stat{display:flex;gap:32px;margin-top:24px}
+  .stat-num{font-family:'Cabinet Grotesk',sans-serif;font-size:32px;font-weight:800;color:var(--gold)}
+  .stat-label{font-size:11px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px}
+  
+  /* REVIEWS */
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .review-card{background:#fff;border-radius:10px;padding:28px;position:relative}
+  .review-quote{position:absolute;top:16px;right:20px;font-family:'Cabinet Grotesk',sans-serif;font-size:64px;color:rgba(0,0,0,0.04);line-height:1}
+  .review-stars{color:var(--gold);font-size:14px;margin-bottom:12px}
+  .review-text{font-size:14px;color:rgba(45,38,32,0.6);line-height:1.7;font-style:italic}
+  .review-author{font-weight:700;font-size:13px;margin-top:16px;color:var(--charcoal)}
+  
+  /* HOURS + LOCATION */
+  .info-split{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  @media(max-width:768px){.info-split{grid-template-columns:1fr}}
+  .hours-list{display:flex;flex-direction:column;gap:6px}
+  .hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px}
+  .hours-day{color:rgba(45,38,32,0.4)}
+  .hours-time{font-weight:600}
+  .loc-card{background:#fff;border-radius:10px;padding:28px}
+  .loc-card h3{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:800;margin-bottom:16px}
+  .loc-detail{font-size:14px;color:rgba(45,38,32,0.5);margin-bottom:10px;line-height:1.6}
+  .loc-detail a{color:var(--flame);text-decoration:none;font-weight:600}
+  
+  /* CTA */
+  .cta{background:var(--flame);color:#fff;text-align:center;padding:80px 24px;margin:48px 40px;border-radius:12px;position:relative;overflow:hidden}
+  .cta::before{content:'🌮';position:absolute;font-size:200px;opacity:0.08;top:-40px;right:-20px;transform:rotate(-15deg)}
+  .cta-content{position:relative;z-index:1}
+  .cta h2{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+  .cta p{font-size:16px;opacity:0.8;margin-bottom:28px}
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-white{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#fff;color:var(--flame);font-weight:700;font-size:14px;text-decoration:none;border-radius:6px;transition:all .3s}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+  .btn-outline-w{display:inline-flex;padding:14px 28px;border:1px solid rgba(255,255,255,0.3);color:#fff;font-weight:600;font-size:14px;text-decoration:none;border-radius:6px}
+  
+  .footer{text-align:center;padding:24px;font-size:12px;color:rgba(45,38,32,0.3)}
+  
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+  .reveal.v{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-brand">Señor <em>Tacos</em></a>
+  <div class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#story">Our Story</a>
+    <a href="#hours">Visit</a>
+    <a href="https://order.toasttab.com/online/senortacoslafayette" class="nav-order">Order Online</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Est. 2001 — Lafayette, Indiana</div>
+    <h1>Real food.<br>Real family.<br>Real flavor.</h1>
+    <p class="hero-sub">Authentic Mexican recipes from our family to yours. Every salsa, every tortilla, every morning — made fresh from scratch.</p>
+    <div class="hero-btns">
+      <a href="https://order.toasttab.com/online/senortacoslafayette" class="btn-flame">Order Online →</a>
+      <a href="tel:7656074150" class="btn-ghost">📞 (765) 607-4150</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <em>★</em> Tacos Al Pastor <em>★</em> Burritos <em>★</em> Quesadillas <em>★</em> Pozole <em>★</em> Arroz Con Pollo <em>★</em> Tortas <em>★</em> Catering Available <em>★</em> Dine In <em>★</em> Delivery <em>★</em> Tacos Al Pastor <em>★</em> Burritos <em>★</em> Quesadillas <em>★</em> Pozole <em>★</em> Arroz Con Pollo <em>★</em> Tortas <em>★</em> Catering Available <em>★</em> Dine In <em>★</em> Delivery
+  </div>
+</div>
+
+<section class="section" id="menu">
+  <div class="section-eyebrow reveal">The Menu</div>
+  <div class="section-heading reveal">Flavors worth<br>coming back for.</div>
+  <div class="section-desc reveal">Every dish prepared fresh daily from family recipes brought straight from Mexico.</div>
+  
+  <div class="menu-grid">
+    <div class="menu-item reveal">
+      <img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?w=200&h=200&fit=crop" alt="Tacos" class="menu-img">
+      <div><div class="menu-name">Tacos Al Pastor</div><div class="menu-desc">Marinated pork, pineapple, onion, cilantro on fresh corn tortillas. Our signature.</div><div class="menu-price">$4.20</div></div>
+    </div>
+    <div class="menu-item reveal">
+      <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=200&h=200&fit=crop" alt="Burrito" class="menu-img">
+      <div><div class="menu-name">Burrito con Queso</div><div class="menu-desc">Massive burrito with your choice of meat, rice, beans, and melted white cheese.</div><div class="menu-price">$16.79</div></div>
+    </div>
+    <div class="menu-item reveal">
+      <img src="https://images.unsplash.com/photo-1613514785940-daed07799d9b?w=200&h=200&fit=crop" alt="Arroz" class="menu-img">
+      <div><div class="menu-name">Arroz Con Pollo</div><div class="menu-desc">Tender chicken over seasoned rice with fresh vegetables and salsa verde.</div><div class="menu-price">$14.99</div></div>
+    </div>
+    <div class="menu-item reveal">
+      <img src="https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=200&h=200&fit=crop" alt="Quesadilla" class="menu-img">
+      <div><div class="menu-name">Quesadilla</div><div class="menu-desc">Grilled flour tortilla with melted cheese and your choice of protein.</div><div class="menu-price">$10.99</div></div>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-size:13px;color:rgba(45,38,32,0.3)" class="reveal">Full menu at <a href="https://order.toasttab.com/online/senortacoslafayette" style="color:var(--flame);font-weight:600;text-decoration:none">order.toasttab.com →</a></p>
+</section>
+
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-gallery reveal">
+      <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=400&fit=crop" alt="Tacos">
+      <img src="https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=300&h=300&fit=crop" alt="Food">
+      <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=300&h=300&fit=crop" alt="Burrito">
+    </div>
+    <div class="story-text">
+      <div class="section-eyebrow reveal">Our Story</div>
+      <div class="section-heading reveal" style="color:#fff">Born in Mexico.<br>Raised in Lafayette.</div>
+      <p class="reveal">Señor Tacos is a family-owned restaurant where the owner, his wife, and their family work side-by-side as cooks, servers, and cashiers. Born and raised in Mexico, they've called Lafayette home since 2001.</p>
+      <p class="reveal">Every recipe is authentic — passed down through generations. Every salsa made fresh each morning. Every customer treated like family.</p>
+      <div class="story-stat reveal">
+        <div><div class="stat-num">25</div><div class="stat-label">Years Serving Lafayette</div></div>
+        <div><div class="stat-num">100</div><div class="stat-label">Health Score</div></div>
+        <div><div class="stat-num">88</div><div class="stat-label">Yelp Reviews</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="section-eyebrow reveal">Reviews</div>
+  <div class="section-heading reveal">People talk.</div>
+  <div class="section-desc reveal">88 reviews on Yelp. 4.5 stars. 100/100 health score.</div>
+  <div class="reviews-grid">
+    <div class="review-card reveal"><div class="review-quote">"</div><div class="review-stars">★★★★★</div><div class="review-text">"This is my favorite restaurant. The burrito has very balanced flavor. Everything tastes fresh and authentic."</div><div class="review-author">— DoorDash Customer</div></div>
+    <div class="review-card reveal"><div class="review-quote">"</div><div class="review-stars">★★★★★</div><div class="review-text">"Best tacos in Lafayette, hands down. The Al Pastor is incredible — perfectly seasoned with real pineapple."</div><div class="review-author">— Yelp Reviewer</div></div>
+    <div class="review-card reveal"><div class="review-quote">"</div><div class="review-stars">★★★★★</div><div class="review-text">"Family-owned and you can feel it. Portions are huge, staff is always friendly. We come here every week."</div><div class="review-author">— Regular Customer</div></div>
+  </div>
+</section>
+
+<section class="section" id="hours">
+  <div class="section-eyebrow reveal">Visit Us</div>
+  <div class="section-heading reveal">Come hungry.</div>
+  <div class="info-split">
+    <div class="reveal">
+      <div class="hours-list">
+        <div class="hours-row"><span class="hours-day">Monday — Thursday</span><span class="hours-time">11:00 AM – 10:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday — Saturday</span><span class="hours-time">11:00 AM – 11:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">11:00 AM – 9:00 PM</span></div>
+      </div>
+      <p style="font-size:13px;color:rgba(45,38,32,0.4);margin-top:16px">Open 7 days a week. Dine in, takeout, and delivery available.</p>
+    </div>
+    <div class="loc-card reveal">
+      <h3>Señor Tacos</h3>
+      <div class="loc-detail">📍 1803 Veterans Memorial Pkwy S<br>Suite F, Lafayette, IN 47909</div>
+      <div class="loc-detail">📞 <a href="tel:7656074150">(765) 607-4150</a></div>
+      <div class="loc-detail">📧 <a href="mailto:senortacos1803@gmail.com">senortacos1803@gmail.com</a></div>
+      <div class="loc-detail">🛒 <a href="https://order.toasttab.com/online/senortacoslafayette">Order online for pickup →</a></div>
+      <div class="loc-detail">🚗 Free parking · Catering available</div>
+    </div>
+  </div>
+</section>
+
+<div style="padding:0 40px">
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Hungry yet?</h2>
+      <p>Order online or walk in. We'd love to feed you.</p>
+      <div class="cta-btns">
+        <a href="https://order.toasttab.com/online/senortacoslafayette" class="btn-white">🛒 Order Online</a>
+        <a href="tel:7656074150" class="btn-outline-w">📞 Call Us</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">© 2026 Señor Tacos — 1803 Veterans Memorial Pkwy S, Lafayette, IN 47909</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('v'),i*60)})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lafayette Groomers — Happy Pets Since 1988 | Lafayette, IN</title>
+<meta name="description" content="Professional dog and cat grooming in Lafayette, Indiana. No cages, no stress. Call (765) 447-3188.">
+<link href="https://api.fontshare.com/v2/css?f[]=erode@600,700&f[]=supreme@400,500,700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--forest:#1a3c2a;--sage:#4a7c5c;--sage-light:#e8f0ea;--peach:#f4a261;--linen:#faf8f4;--bark:#3d2e1e;--cream:#fffdf7}
+  body{font-family:'Supreme',sans-serif;color:var(--bark);background:var(--cream)}
+  
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:100;background:rgba(255,253,247,0.92);backdrop-filter:blur(12px);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.04)}
+  .nav-brand{font-family:'Erode',serif;font-size:22px;font-weight:700;color:var(--forest);text-decoration:none}
+  .nav-brand em{color:var(--peach);font-style:normal}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--bark);text-decoration:none;font-size:13px;font-weight:500;opacity:0.5;transition:opacity .3s}
+  .nav-links a:hover{opacity:1}
+  .nav-cta{background:var(--forest)!important;color:#fff!important;padding:8px 20px;border-radius:40px;opacity:1!important;font-weight:600!important;font-size:12px!important}
+  @media(max-width:768px){.nav{padding:14px 20px}.nav-links{gap:14px}.nav-links a{font-size:11px}}
+  
+  /* HERO — playful with curved section */
+  .hero{padding:100px 40px 60px;text-align:center;position:relative}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--sage-light);color:var(--sage);padding:8px 18px;border-radius:40px;font-size:12px;font-weight:600;margin-bottom:24px}
+  .hero h1{font-family:'Erode',serif;font-size:clamp(36px,6vw,64px);font-weight:700;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;color:var(--forest)}
+  .hero h1 em{color:var(--peach);font-style:normal}
+  .hero-sub{font-size:17px;color:rgba(61,46,30,0.5);max-width:460px;margin:0 auto 32px;line-height:1.7}
+  .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-forest{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--forest);color:#fff;font-weight:600;font-size:14px;text-decoration:none;border-radius:40px;transition:all .3s}
+  .btn-forest:hover{background:#15322a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,60,42,0.2)}
+  .btn-soft{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--sage-light);color:var(--forest);font-weight:600;font-size:14px;text-decoration:none;border-radius:40px;transition:all .3s}
+  .btn-soft:hover{background:#dce8de}
+  @media(max-width:768px){.hero{padding:80px 20px 40px}}
+  
+  /* PHOTO STRIP */
+  .photo-strip{display:flex;gap:10px;padding:0 40px;max-width:1100px;margin:0 auto 80px;overflow:hidden}
+  .photo-strip img{flex:1;height:280px;object-fit:cover;border-radius:16px;transition:transform .5s}
+  .photo-strip img:hover{transform:scale(1.02)}
+  .photo-strip img:nth-child(1){border-radius:16px 60px 16px 16px}
+  .photo-strip img:nth-child(3){border-radius:16px 16px 60px 16px}
+  @media(max-width:768px){.photo-strip{flex-direction:column;padding:0 20px}.photo-strip img{height:200px;border-radius:16px!important}}
+  
+  /* STATS */
+  .stats{display:flex;justify-content:center;gap:48px;padding:48px 24px;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat-num{font-family:'Erode',serif;font-size:48px;font-weight:700;color:var(--forest);line-height:1}
+  .stat-label{font-size:12px;color:rgba(61,46,30,0.4);margin-top:4px;font-weight:500}
+  
+  /* SECTIONS */
+  .section{padding:80px 40px;max-width:1000px;margin:0 auto}
+  @media(max-width:768px){.section{padding:48px 20px}}
+  .section-tag{font-size:11px;color:var(--peach);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+  .section-title{font-family:'Erode',serif;font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:12px;color:var(--forest)}
+  .section-desc{font-size:15px;color:rgba(61,46,30,0.4);max-width:420px;line-height:1.7;margin-bottom:40px}
+  
+  /* SERVICES — organic rounded cards */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  .svc-card{background:var(--linen);border-radius:20px;padding:28px;transition:all .3s;border:1px solid transparent}
+  .svc-card:hover{background:#fff;border-color:rgba(74,124,92,0.15);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+  .svc-dot{width:32px;height:32px;background:var(--sage-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:14px}
+  .svc-name{font-family:'Erode',serif;font-size:18px;font-weight:700;color:var(--forest);margin-bottom:6px}
+  .svc-desc{font-size:13px;color:rgba(61,46,30,0.4);line-height:1.6}
+  
+  /* REVIEWS — offset cards */
+  .reviews{display:flex;flex-direction:column;gap:12px;max-width:600px}
+  .rev-card{background:var(--linen);border-radius:20px;padding:28px;transition:transform .3s}
+  .rev-card:nth-child(2){margin-left:48px}
+  .rev-card:nth-child(3){margin-left:24px}
+  @media(max-width:768px){.rev-card:nth-child(2),.rev-card:nth-child(3){margin-left:0}}
+  .rev-card:hover{transform:translateY(-2px)}
+  .rev-stars{color:var(--peach);font-size:16px;margin-bottom:10px}
+  .rev-text{font-size:15px;color:rgba(61,46,30,0.6);line-height:1.7;font-style:italic}
+  .rev-author{font-size:12px;font-weight:700;color:var(--sage);margin-top:12px}
+  
+  /* HOURS */
+  .hours-wrap{background:var(--forest);border-radius:24px;padding:48px;color:#fff;max-width:600px;margin:0 auto}
+  .hours-wrap .section-tag{color:var(--peach)}
+  .hours-wrap .section-title{color:#fff}
+  .hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:15px}
+  .hours-day{opacity:0.4}
+  .hours-time{font-weight:600}
+  .hours-closed{opacity:0.2}
+  .hours-contact{margin-top:24px;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8}
+  .hours-contact a{color:var(--peach);text-decoration:none}
+  
+  /* CTA */
+  .cta{text-align:center;padding:80px 24px}
+  .cta h2{font-family:'Erode',serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--forest);letter-spacing:-1px;margin-bottom:12px}
+  .cta p{font-size:15px;color:rgba(61,46,30,0.4);margin-bottom:28px}
+  .cta-phone{display:inline-block;font-family:'Erode',serif;font-size:32px;font-weight:700;color:var(--forest);text-decoration:none;padding:16px 40px;border:2px solid var(--forest);border-radius:50px;transition:all .3s}
+  .cta-phone:hover{background:var(--forest);color:#fff}
+  
+  .footer{text-align:center;padding:32px;font-size:11px;color:rgba(61,46,30,0.2)}
+  
+  .reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+  .reveal.v{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-brand">Lafayette <em>Groomers</em></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#hours">Hours</a>
+    <a href="tel:7654473188" class="nav-cta">📞 Book Now</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">🐾 Trusted Since 1988</div>
+  <h1>Where every pet<br>leaves <em>wagging.</em></h1>
+  <p class="hero-sub">Professional grooming with heart. No cages, no rush — just gentle hands and happy tails. Serving Greater Lafayette for 37 years.</p>
+  <div class="hero-btns">
+    <a href="tel:7654473188" class="btn-forest">📞 (765) 447-3188</a>
+    <a href="#services" class="btn-soft">See Services ↓</a>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&h=400&fit=crop" alt="Happy groomed dog">
+  <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&h=400&fit=crop" alt="Dogs playing">
+  <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&h=400&fit=crop" alt="Golden retriever">
+</div>
+
+<div class="stats reveal">
+  <div class="stat"><div class="stat-num">37</div><div class="stat-label">Years in Business</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Cages Used</div></div>
+  <div class="stat"><div class="stat-num">1k+</div><div class="stat-label">Happy Pets</div></div>
+  <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Rating</div></div>
+</div>
+
+<section class="section" id="services">
+  <div class="section-tag reveal">Services</div>
+  <div class="section-title reveal">Everything they need.<br>Nothing they don't.</div>
+  <div class="section-desc reveal">Complete grooming for dogs and cats of all breeds and sizes.</div>
+  
+  <div class="services-grid">
+    <div class="svc-card reveal"><div class="svc-dot">🛁</div><div class="svc-name">Bath & Brush</div><div class="svc-desc">Shampoo, conditioner, blow dry, thorough brushing. Ears and nails included.</div></div>
+    <div class="svc-card reveal"><div class="svc-dot">✂️</div><div class="svc-name">Full Groom</div><div class="svc-desc">Complete package — bath, haircut styled to breed or preference, all finishing touches.</div></div>
+    <div class="svc-card reveal"><div class="svc-dot">💅</div><div class="svc-name">Nail Trim</div><div class="svc-desc">Quick and gentle. Walk-ins welcome for nail trims anytime.</div></div>
+    <div class="svc-card reveal"><div class="svc-dot">🧹</div><div class="svc-name">De-Shedding</div><div class="svc-desc">Reduce shedding up to 80%. Your furniture will thank you.</div></div>
+    <div class="svc-card reveal"><div class="svc-dot">🦷</div><div class="svc-name">Teeth Brushing</div><div class="svc-desc">Fresh breath, healthy gums. Quick dental hygiene add-on.</div></div>
+    <div class="svc-card reveal"><div class="svc-dot">🛡️</div><div class="svc-name">Flea & Tick</div><div class="svc-desc">Medicated bath to eliminate pests. Includes full grooming service.</div></div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="section-tag reveal">Kind Words</div>
+  <div class="section-title reveal">Pet parents love us.</div>
+  <div class="section-desc reveal">Hear from the humans behind the happy tails.</div>
+  
+  <div class="reviews">
+    <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><div class="rev-text">"I took my dog in today and the staff was so nice. My dog loved them. I loved that they didn't put my dog in a cage and it was so affordable!"</div><div class="rev-author">— Yelp Review</div></div>
+    <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><div class="rev-text">"Been bringing our dogs here for years. They always come back looking amazing and happy. The groomers genuinely care."</div><div class="rev-author">— Loyal Customer</div></div>
+    <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><div class="rev-text">"Best groomer in Lafayette. Fair prices, friendly staff, and my pup actually enjoys going."</div><div class="rev-author">— Facebook Review</div></div>
+  </div>
+</section>
+
+<section class="section" id="hours">
+  <div class="hours-wrap reveal">
+    <div class="section-tag">Hours & Location</div>
+    <div class="section-title" style="color:#fff;margin-bottom:24px">Come see us.</div>
+    <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">By Appointment</span></div>
+    <div class="hours-row"><span class="hours-day">Tuesday — Friday</span><span class="hours-time">8:00 AM – 5:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 3:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time hours-closed">Closed</span></div>
+    <div class="hours-contact">
+      📍 3818 State Road 38 East, Lafayette, IN 47905<br>
+      📞 <a href="tel:7654473188">(765) 447-3188</a><br>
+      🚗 Free parking · All breeds welcome
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="reveal">Ready to book?</h2>
+  <p class="reveal">Call to schedule your pet's appointment today.</p>
+  <a href="tel:7654473188" class="cta-phone reveal">📞 (765) 447-3188</a>
+</section>
+
+<footer class="footer">© 2026 Lafayette Groomers — Lafayette, Indiana — Since 1988</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('v'),i*60)})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>
