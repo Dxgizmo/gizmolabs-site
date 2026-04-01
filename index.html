@@ -15,9 +15,9 @@
     --border:#1c1c1f;
     --text:#fafafa;
     --dim:#71717a;
-    --accent:#CCFF00;
-    --accent-dim:rgba(204,255,0,0.1);
-    --accent-glow:rgba(204,255,0,0.15);
+    --accent:#F59E0B;
+    --accent-dim:rgba(245,158,11,0.1);
+    --accent-glow:rgba(245,158,11,0.15);
   }
   
   html{scroll-behavior:smooth}
@@ -28,7 +28,7 @@
   
   /* NAV */
   .nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:difference}
-  .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none} .nav-brand img{height:36px;width:auto;filter:invert(1)} .nav-brand span{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--accent);letter-spacing:-0.5px}
+  .nav-brand{font-family:"Outfit",sans-serif;font-size:18px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:1px}
   .nav-links{display:flex;gap:32px}
   .nav-links a{color:#fff;text-decoration:none;font-size:13px;font-weight:500;opacity:0.5;transition:opacity .3s}
   .nav-links a:hover{opacity:1}
@@ -143,7 +143,7 @@
 <body>
 
 <nav class="nav">
-  <a href="#" class="nav-brand"><img src="logo.jpg" alt="Freshly Forged"><span>FRESHLY FORGED</span></a>
+  <a href="#" class="nav-brand">FRESHLY FORGED</a>
   <div class="nav-links">
     <a href="#work">Work</a>
     <a href="#services">Services</a>
@@ -154,6 +154,7 @@
 
 <section class="hero">
   <div class="hero-bg"></div>
+  <div style="position:absolute;top:0;right:-5%;width:65%;height:100%;display:flex;align-items:center;justify-content:center;pointer-events:none"><img src="logo.jpg" alt="" style="width:90%;max-width:600px;height:auto;filter:invert(1) brightness(1.2);mix-blend-mode:lighten;opacity:0.2"></div>
   <div class="hero-content" style="z-index:1">
     <div class="hero-eyebrow">Lafayette, IN — Web Design Studio</div>
     <h1>We build sites<br>that make you <em>money.</em></h1>
@@ -162,30 +163,6 @@
   </div>
 </section>
 
-  <div style="position:absolute;top:0;right:0;width:60%;height:100%;overflow:hidden;pointer-events:none;opacity:0.12;display:flex;align-items:center;justify-content:flex-end;padding-right:40px">
-    <pre style="font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2;color:var(--accent);white-space:pre;transform:rotate(-3deg)">.hero { display: flex; min-height: 100vh; }
-.nav { position: fixed; z-index: 100; }
-.nav { backdrop-filter: blur(20px); }
-.btn { padding: 14px 32px; font-weight: 700; }
-.btn:hover { transform: translateY(-2px); }
-.card { border: 1px solid var(--border); }
-.card:hover { box-shadow: 0 20px 40px; }
-@media (max-width: 768px) { }
-.section { padding: 100px 40px; }
-.grid { display: grid; gap: 16px; }
-body { font-family: 'Outfit', sans-serif; }
-:root { --accent: #CCFF00; --bg: #0c0c0c; }
-.reveal { opacity: 0; transform: translateY(30px); }
-.reveal.visible { opacity: 1; transform: none; }
-h1 { font-size: clamp(42px, 7vw, 80px); }
-.footer { border-top: 1px solid var(--border); }
-.price-card { background: var(--surface); }
-.price-card.featured { border-color: var(--accent); }
-a { transition: all 0.3s ease; }
-.service-block:hover { background: var(--surface); }
-.work-card:hover { transform: translateY(-4px); }
-.marquee { animation: marquee 30s linear infinite; }
-* { margin: 0; padding: 0; box-sizing: border-box; }</pre>
   </div>
 </section>
 
@@ -321,10 +298,37 @@ a { transition: all 0.3s ease; }
 <section class="cta" id="contact">
   <div class="cta-content reveal">
     <h2>Ready to go <em>live?</em></h2>
-    <p>Text me your business name. Free preview within 24 hours.</p>
-    <a href="tel:7656371152" class="cta-phone">(765) 637-1152</a>
-    <a href="mailto:dxgizmo@protonmail.com" class="cta-email">dxgizmo@protonmail.com</a>
-    <a href="https://venmo.com/Freshly Forged" class="cta-email" style="color:var(--accent);margin-top:8px;">Venmo: @Freshly Forged</a>
+    <p style="margin-bottom:32px">Tell us about your business and we'll get back to you within 24 hours.</p>
+    <form action="https://formspree.io/f/dxgizmo@protonmail.com" method="POST" style="max-width:480px;margin:0 auto;text-align:left">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div>
+          <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">First Name</label>
+          <input type="text" name="first_name" required style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit" placeholder="John">
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Last Name</label>
+          <input type="text" name="last_name" required style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit" placeholder="Smith">
+        </div>
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Business Name</label>
+        <input type="text" name="business" required style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit" placeholder="Your Business LLC">
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Email</label>
+        <input type="email" name="email" required style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit" placeholder="you@business.com">
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Phone (optional)</label>
+        <input type="tel" name="phone" style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit" placeholder="(555) 123-4567">
+      </div>
+      <div style="margin-bottom:20px">
+        <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">What do you need?</label>
+        <textarea name="message" rows="4" required style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit;resize:vertical" placeholder="Tell us about your business and what kind of website you're looking for..."></textarea>
+      </div>
+      <button type="submit" style="width:100%;padding:14px;background:var(--accent);color:var(--bg);border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:0.5px;transition:all .3s">Get Your Free Preview →</button>
+    </form>
+    <p style="margin-top:20px;font-size:13px;color:var(--dim)">Or call directly: <a href="tel:7656371152" style="color:var(--accent);text-decoration:none;font-weight:600">(765) 637-1152</a></p>
   </div>
 </section>
 
