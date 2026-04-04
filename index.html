@@ -256,7 +256,7 @@
         <li>Monthly content updates</li>
         <li>Fast turnaround — days not weeks</li>
       </ul>
-      <a href="#contact" class="price-btn price-btn-ghost">Get Started</a>
+      <a href="#contact" class="price-btn price-btn-ghost" onclick="selectPlan(0)">Get Started</a>
     </div>
     <div class="price-card featured reveal">
       <div class="price-label">Professional</div>
@@ -273,12 +273,12 @@
         <li>Unlimited edits & updates</li>
         <li>Priority support — text anytime</li>
       </ul>
-      <a href="#contact" class="price-btn price-btn-fill">Get Started →</a>
+      <a href="#contact" class="price-btn price-btn-fill" onclick="selectPlan(1)">Get Started →</a>
     </div>
     <div class="price-card reveal">
       <div class="price-label">Enterprise</div>
       <div class="price-name">Full Custom</div>
-      <div class="price-amount">$2,000<span>+</span> <span>+ $200/mo</span></div>
+      <div class="price-amount">$2,000<span>+</span> <span>$200/mo</span></div>
       <div class="price-period">custom quote + monthly maintenance</div>
       <ul class="price-features">
         <li>Everything in Professional</li>
@@ -290,7 +290,7 @@
         <li>Advanced SEO & content strategy</li>
         <li>Dedicated support & quarterly reviews</li>
       </ul>
-      <a href="#contact" class="price-btn price-btn-ghost">Contact Us</a>
+      <a href="#contact" class="price-btn price-btn-ghost" onclick="selectPlan(2)">Contact Us</a>
     </div>
   </div>
 </section>
@@ -322,7 +322,11 @@
         <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Phone (optional)</label>
         <input type="tel" name="phone" style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit" placeholder="(555) 123-4567">
       </div>
-      <div style="margin-bottom:20px">
+      <div style="margin-bottom:12px">
+          <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Interested In</label>
+          <select name="plan" id="planSelect" style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit"><option value="Standard ($500 + $100/mo)">Standard — $500 + $100/mo</option><option value="Professional ($1,000 + $150/mo)">Professional — $1,000 + $150/mo</option><option value="Enterprise ($2,000+ + $200/mo)">Enterprise — $2,000+ + $200/mo</option><option value="Not sure yet">Not sure yet</option></select>
+        </div>
+        <div style="margin-bottom:20px">
         <label style="display:block;font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">What do you need?</label>
         <textarea name="message" rows="4" required style="width:100%;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;font-family:inherit;resize:vertical" placeholder="Tell us about your business and what kind of website you're looking for..."></textarea>
       </div>
@@ -341,6 +345,7 @@
 <div class="gizmo-msg" id="gm"><strong>You found the gremlin!</strong><br>Don't feed him after midnight 😈</div>
 
 <script>
+function selectPlan(i){document.getElementById("planSelect").selectedIndex=i;}
 const reveals=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80)}})},{threshold:0.1});
 reveals.forEach(el=>obs.observe(el));
